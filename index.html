@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<title>音乐播放器</title>
+<style>
+body {
+    background: #1f1b18;
+    color: #f4e9d8;
+    font-family: "STSong", serif;
+    text-align: center;
+    padding-top: 120px;
+}
+
+/* 播放按钮 */
+.play-btn {
+    background: linear-gradient(180deg, #e3c27b, #d1a858);
+    padding: 18px 48px;
+    border-radius: 14px;
+    display: inline-flex;
+    align-items: center;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    color: #4a3414;
+}
+
+.play-btn span {
+    margin-left: 8px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="play-btn" onclick="toggleMusic()">
+    <div id="icon">▶</div>
+    <span id="text">点击播放</span>
+</div>
+
+<h1 style="margin-top:60px; font-size:36px;">案件卷宗 No.xx</h1>
+<p style="margin-top:16px; color:#b8a898;">你靠近我</p>
+
+<audio id="music" src="lofi-song.mp3" loop></audio>
+
+<script>
+function toggleMusic() {
+    const music = document.getElementById("music");
+    const text = document.getElementById("text");
+    const icon = document.getElementById("icon");
+
+    if (music.paused) {
+        music.play();
+        text.innerText = "暂停播放";
+        icon.innerText = "⏸";
+    } else {
+        music.pause();
+        text.innerText = "点击播放";
+        icon.innerText = "▶";
+    }
+}
+</script>
+
+</body>
+</html>
